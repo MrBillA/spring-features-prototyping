@@ -1,0 +1,53 @@
+// build a map of the dependency artifacts to use.  Allows centralized definition of the version of artifacts to
+// use.  In that respect it serves a role similar to <dependencyManagement> in Maven
+ext {
+	// Module version definitions
+	springVersion = '3.1.1.RELEASE'
+	springDataVersion = '1.1.0.RELEASE'
+	jpaVersion = '2.0.0'
+	junitVersion = '4.10'
+	hibernateVersion = '4.1.4.Final'
+	hibernateJpaVersion = '1.0.0.Final'
+	slf4jVersion = '1.6.6'
+	log4jVersion = '1.2.16'
+	aspectjVersion = '1.6.12'
+	jodatimeVersion = '2.1'
+	hsqldbVersion = '2.2.8'
+	mockitoVersion = '1.9.0'
+	hamcrestVersion = '1.1'
+	querydslVersion = '2.6.0'
+
+    libraries = [
+		// Spring
+		springDataJpa:			"org.springframework.data:spring-data-jpa:$springDataVersion",
+		springOrm:				"org.springframework:spring-orm:$springVersion",
+		springCore:				"org.springframework:spring-core:$springVersion",
+		
+		// AspectJ
+		aspectJ:				"org.aspectj:aspectjweaver:$aspectjVersion",
+		
+		// Hibernate
+		hibernateJpa:			"org.hibernate.javax.persistence:hibernate-jpa-2.0-api:$hibernateJpaVersion",
+		hibernateEntityManager:	"org.hibernate:hibernate-entitymanager:$hibernateVersion",
+        jpa_modelgen:    'org.hibernate:hibernate-jpamodelgen:1.1.1.Final',
+
+		// Joda
+		jodaTime:				"joda-time:joda-time:$jodatimeVersion",
+	
+		// QueryDsl
+        queryDslApt:			"com.mysema.querydsl:querydsl-apt:$querydslVersion",
+        queryDslJpa:			"com.mysema.querydsl:querydsl-jpa:$querydslVersion",
+
+        // logging
+ 		log4j:					"log4j:log4j:$log4jVersion",
+        slf4j_api:      		"org.slf4j:slf4j-api:${slf4jVersion}",
+        slf4j_log4j12:  		"org.slf4j:slf4j-log4j12:${slf4jVersion}",
+
+		// testing
+        junit:          		"junit:junit:${junitVersion}",
+        mockito:        		"org.mockito:$mockitoVersion",
+        hamcrest:				"org.hamcrest:hamcrest-all:$hamcrestVersion",
+        springTest:				"org.springframework:spring-test:$springVersion",
+        hsqldb:					"org.hsqldb:hsqldb:hsqldbVersion"
+    ]
+}

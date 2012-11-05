@@ -1,0 +1,11 @@
+/*
+ * Spring enabled application.
+ */
+
+description = 'Spring Persistence'
+
+apply plugin: 'base'
+apply plugin: 'idea'
+apply from: "./library.gradle"
+
+println libraries
