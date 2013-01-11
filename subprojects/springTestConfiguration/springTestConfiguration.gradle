@@ -1,0 +1,87 @@
+apply plugin: 'java'
+
+description = 'Core Services'
+
+group = 'net.twotwofish.services'
+println "${rootProject.version}"
+
+targetCompatibility = "1.6"
+sourceCompatibility = "1.6"
+
+sourceSets {
+	// Setting sources defaults to the default locations. Not necessary, but its here as an
+	// example for adding new source directories to the build.
+	main {
+		java {
+			srcDirs = ['src/main/java']
+		}
+		resources {
+			srcDirs = ['src/main/resources']
+		}
+	}
+	test {
+		java {
+			srcDirs = ['src/test/java']
+		}
+		resources {
+			srcDirs = ['src/test/resources']
+		}
+	}
+}
+
+
+dependencies {
+	compile( libraries.spring_core )
+	compile( libraries.spring_expression )
+	compile( libraries.spring_aop )
+	compile( libraries.spring_tx )
+	compile( libraries.spring_jdbc )
+	compile( libraries.spring_context )
+	compile( libraries.spring_beans )
+	compile( libraries.spring_instrument )
+	compile( libraries.spring_aspects )
+
+	compile( libraries.spring_test )
+
+
+	compile( libraries.slf4j_api )
+	compile( libraries.slf4j_log4j12 )
+
+	compile( libraries.commons_beanutils )
+	compile( libraries.commons_collections )
+	compile( libraries.commons_lang )
+	compile( libraries.commons_io )
+
+	runtime( libraries.cglib )
+
+	// TODO: provided generates an error.
+//	provided( libraries.hsqldb )
+	testCompile( libraries.junit )
+	testCompile( libraries.mockito )
+	testCompile( libraries.hamcrest )
+	testRuntime( libraries.spring_test )
+
+}
+
+[compileJava, compileTestJava]*.options*.compilerArgs = [xLintArg]
+
+task sourcesJar(type: Jar, dependsOn: compileJava) {
+	from sourceSets.main.allSource
+	classifier = 'sources'
+}
+
+task javadocJar(type: Jar) {
+	classifier = 'javadoc'
+	from javadoc
+}
+
+artifacts {
+	archives sourcesJar
+	archives javadocJar
+}
+
+println "Root project name: ${rootProject.name}"
+println "This project name: ${project.name}"
+
+println "Version: ${project.version}"
+

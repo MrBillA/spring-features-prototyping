@@ -5,7 +5,81 @@
 description = 'Spring Persistence'
 
 apply plugin: 'base'
-apply plugin: 'idea'
 apply from: "./library.gradle"
 
-println libraries
+allprojects {
+	apply plugin: "idea"
+
+	// Configure Idea
+	idea {
+		project {
+			languageLevel = '1.6'
+		}
+
+		module {
+			inheritOutputDirs = false
+			outputDir = file('./build/classes/main')
+			testOutputDir = file('./build/classes/test')
+			
+			downloadJavadoc = true
+
+			downloadSources = true
+		}
+	}
+
+	repositories {
+		mavenCentral()
+		mavenLocal()
+	}
+}
+
+subprojects { subProject ->
+	defaultTasks 'build'
+
+	// elements used to customize the generated POM used during upload
+	def pomConfig = {
+		name 'Gradle and Spring Configuration Explorations'
+		description 'A module of the Configuration Exploration project'
+		url 'http://22fish.net'
+		organization {
+			name '22fish.net'
+			url 'http://22fish.net'
+		}
+		issueManagement {
+			system 'jira'
+			url 'http://opensource.atlassian.com/projects/hibernate/browse/HHH'
+		}
+		scm {
+			url "http://github.com/hibernate/hibernate-core"
+			connection "scm:git:http://github.com/hibernate/hibernate-core.git"
+			developerConnection "scm:git:git@github.com:hibernate/hibernate-core.git"
+		}
+		licenses {
+			license {
+				name 'Open'
+				url 'http://22fish.net'
+				comments 'No license.'
+				distribution 'repo'
+			}
+		}
+		developers {
+			developer {
+				id 'Bill'
+				name 'Bill'
+				organization '22fish.net'
+				organizationUrl 'http://22fish.net'
+			}
+		}
+	}
+
+	subProject.ext.basePomConfig = pomConfig
+
+//	configure(install.repositories.mavenInstaller) {
+//		pom.project pomConfig
+//	}
+
+	// enable all compiler warnings; individual projects may customize further
+	ext.xLintArg = '-Xlint:all'
+
+}
+

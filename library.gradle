@@ -16,22 +16,40 @@ ext {
 	mockitoVersion = '1.9.0'
 	hamcrestVersion = '1.1'
 	querydslVersion = '2.6.0'
+	cglibVersion = '2.2.2'
 
     libraries = [
 		// Spring
-		springDataJpa:			"org.springframework.data:spring-data-jpa:$springDataVersion",
-		springOrm:				"org.springframework:spring-orm:$springVersion",
-		springCore:				"org.springframework:spring-core:$springVersion",
-		
+		springdata_jpa:			"org.springframework.data:spring-data-jpa:$springDataVersion",
+		spring_orm:				"org.springframework:spring-orm:$springVersion",
+		spring_core:			"org.springframework:spring-core:$springVersion",
+		spring_expression:		"org.springframework:spring-expression:$springVersion",
+		spring_aop:				"org.springframework:spring-aop:$springVersion",
+		spring_tx:				"org.springframework:spring-tx:$springVersion",
+		spring_jdbc:			"org.springframework:spring-jdbc:$springVersion",
+		spring_context:			"org.springframework:spring-context:$springVersion",
+		spring_beans:			"org.springframework:spring-beans:$springVersion",
+		spring_instrument:		"org.springframework:spring-instrument:$springVersion",
+		spring_aspects:			"org.springframework:spring-aspects:$springVersion",
+
 		// AspectJ
 		aspectJ:				"org.aspectj:aspectjweaver:$aspectjVersion",
-		
-		// Hibernate
+
+		// Java Persistence
+		persistence_api:				"javax.persistence:persistence-api:1.0",
+
+			// Hibernate
 		hibernateJpa:			"org.hibernate.javax.persistence:hibernate-jpa-2.0-api:$hibernateJpaVersion",
 		hibernateEntityManager:	"org.hibernate:hibernate-entitymanager:$hibernateVersion",
-        jpa_modelgen:    'org.hibernate:hibernate-jpamodelgen:1.1.1.Final',
+        jpa_modelgen:    		'org.hibernate:hibernate-jpamodelgen:1.1.1.Final',
 
-		// Joda
+		// Apache Commons
+		commons_beanutils:    	"commons-beanutils:commons-beanutils:1.7.0",
+		commons_collections:    "commons-beanutils:commons-beanutils:1.1.1.Final",
+		commons_lang:    		"commons-lang:commons-lang:2.0",
+		commons_io:    			"commons-io:commons-io:1.3",
+
+			// Joda
 		jodaTime:				"joda-time:joda-time:$jodatimeVersion",
 	
 		// QueryDsl
@@ -45,9 +63,11 @@ ext {
 
 		// testing
         junit:          		"junit:junit:${junitVersion}",
-        mockito:        		"org.mockito:$mockitoVersion",
+        mockito:        		"org.mockito:mockito-core:$mockitoVersion",
         hamcrest:				"org.hamcrest:hamcrest-all:$hamcrestVersion",
-        springTest:				"org.springframework:spring-test:$springVersion",
-        hsqldb:					"org.hsqldb:hsqldb:hsqldbVersion"
+        spring_test:			"org.springframework:spring-test:$springVersion",
+        hsqldb:					"org.hsqldb:hsqldb:$hsqldbVersion",
+
+		cglib:					"cglib:cglib-nodep:${cglibVersion}"
     ]
 }

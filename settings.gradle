@@ -1,3 +1,16 @@
-rootProject.name = 'spring-app'
+
 
 include 'services'
+include 'springTestConfiguration'
+
+rootProject.name = 'SpringPersistence'
+
+// 
+rootProject.children.each {project ->
+    String fileBaseName = project.name
+    String projectDirName = "subprojects/$fileBaseName"
+    project.projectDir = new File(settingsDir, projectDirName)
+    project.buildFileName = "${fileBaseName}.gradle"
+    assert project.projectDir.isDirectory()
+    assert project.buildFile.isFile()
+}
