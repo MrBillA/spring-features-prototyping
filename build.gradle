@@ -2,7 +2,7 @@
  * Spring enabled application.
  */
 
-description = 'Spring Persistence'
+description = 'Prototyping build'
 
 apply plugin: 'base'
 apply from: "./library.gradle"
@@ -13,7 +13,6 @@ allprojects {
 	// Configure Idea
 	idea {
 		project {
-			languageLevel = '1.6'
 		}
 
 		module {
@@ -22,7 +21,6 @@ allprojects {
 			testOutputDir = file('./build/classes/test')
 			
 			downloadJavadoc = true
-
 			downloadSources = true
 		}
 	}
@@ -80,6 +78,5 @@ subprojects { subProject ->
 
 	// enable all compiler warnings; individual projects may customize further
 	ext.xLintArg = '-Xlint:all'
-
 }
 

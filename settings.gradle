@@ -1,16 +1,22 @@
+include 'subprojects:springTestConfiguration'
+include 'subprojects:persistencePrototype'
+include 'subprojects:persistencePrototype:model'
 
+rootProject.name = 'Prototyping'
 
-include 'services'
-include 'springTestConfiguration'
-
-rootProject.name = 'SpringPersistence'
-
-// 
+// Change the gradle build file in subprojects to be ${project.name}.gradle.
 rootProject.children.each {project ->
-    String fileBaseName = project.name
-    String projectDirName = "subprojects/$fileBaseName"
-    project.projectDir = new File(settingsDir, projectDirName)
-    project.buildFileName = "${fileBaseName}.gradle"
-    assert project.projectDir.isDirectory()
-    assert project.buildFile.isFile()
+	configureSubproject(project)
+}
+
+def configureSubproject(project)
+{
+	String fileBaseName = project.name
+	project.buildFileName = "${fileBaseName}.gradle"
+
+	// Ensure structure exists.
+	assert project.projectDir.isDirectory()
+	assert project.buildFile.isFile()
+
+	project.children.each { child -> configureSubproject(child) }
 }
