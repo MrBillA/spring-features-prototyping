@@ -1,0 +1,55 @@
+description = 'Persistence Prototype'
+
+group = 'net.twotwofish.persistence.prototype'
+
+// Setup common configuration for all subprojects
+subprojects {
+	apply plugin: 'java'
+
+	targetCompatibility = "1.6"
+	sourceCompatibility = "1.6"
+
+	sourceSets {
+		// Setting sources defaults to the default locations. Not necessary, but its here as an
+		// example for adding new source directories to the build.
+		main {
+			java {
+				srcDirs = ['src/main/java']
+			}
+			resources {
+				srcDirs = ['src/main/resources']
+			}
+		}
+		test {
+			java {
+				srcDirs = ['src/test/java']
+			}
+			resources {
+				srcDirs = ['src/test/resources']
+			}
+		}
+	}
+
+	[compileJava, compileTestJava]*.options*.compilerArgs = [xLintArg]
+
+	task sourcesJar(type: Jar, dependsOn: compileJava) {
+		from sourceSets.main.allSource
+		classifier = 'sources'
+	}
+
+	task javadocJar(type: Jar) {
+		classifier = 'javadoc'
+		from javadoc
+	}
+
+	artifacts {
+		archives sourcesJar
+		archives javadocJar
+	}
+}
+
+println "Root project name: ${rootProject.name}"
+println "This project name: ${project.name}"
+
+println "Version: ${project.version}"
+

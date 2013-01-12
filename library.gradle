@@ -35,8 +35,9 @@ ext {
 		// AspectJ
 		aspectJ:				"org.aspectj:aspectjweaver:$aspectjVersion",
 
-		// Java Persistence
-		persistence_api:				"javax.persistence:persistence-api:1.0",
+		// Javax
+		persistence_api:		"javax.persistence:persistence-api:1.0",
+		validation_api:			"javax.validation:validation-api:1.0.0.GA",
 
 			// Hibernate
 		hibernateJpa:			"org.hibernate.javax.persistence:hibernate-jpa-2.0-api:$hibernateJpaVersion",
@@ -46,13 +47,16 @@ ext {
 		// Apache Commons
 		commons_beanutils:    	"commons-beanutils:commons-beanutils:1.7.0",
 		commons_collections:    "commons-beanutils:commons-beanutils:1.1.1.Final",
-		commons_lang:    		"commons-lang:commons-lang:2.0",
+		commons_lang:    		"commons-lang:commons-lang:2.4",
 		commons_io:    			"commons-io:commons-io:1.3",
 
-			// Joda
+		// Joda
 		jodaTime:				"joda-time:joda-time:$jodatimeVersion",
-	
-		// QueryDsl
+
+		// Jackson
+		jackson:				"org.codehaus.jackson:jackson-core-asl:1.6.3",
+
+			// QueryDsl
         queryDslApt:			"com.mysema.querydsl:querydsl-apt:$querydslVersion",
         queryDslJpa:			"com.mysema.querydsl:querydsl-jpa:$querydslVersion",
 

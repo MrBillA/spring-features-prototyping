@@ -1,0 +1,17 @@
+description = 'Persistence Prototype Model JPA-Annotated'
+
+group = 'net.twotwofish.persistence.prototype.model'
+
+println "This project name: ${project.name}"
+
+dependencies {
+	compile( libraries.persistence_api )
+	compile( libraries.validation_api )
+	compile( libraries.spring_context )
+	compile( libraries.jackson )
+
+	compile( libraries.commons_lang )
+
+	testCompile( libraries.spring_test )
+	testCompile( libraries.junit )
+}

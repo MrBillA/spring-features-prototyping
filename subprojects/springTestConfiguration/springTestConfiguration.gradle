@@ -1,6 +1,6 @@
 apply plugin: 'java'
 
-description = 'Core Services'
+description = 'Prototype Spring Configurations'
 
 group = 'net.twotwofish.services'
 println "${rootProject.version}"
