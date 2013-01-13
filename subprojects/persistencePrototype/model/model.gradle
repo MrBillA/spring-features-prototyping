@@ -14,4 +14,7 @@ dependencies {
 
 	testCompile( libraries.spring_test )
 	testCompile( libraries.junit )
+	groovy( libraries.groovy )
+	testCompile( libraries.spock )
+	testCompile( libraries.hamcrest )
 }

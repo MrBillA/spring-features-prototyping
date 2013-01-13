@@ -6,6 +6,9 @@ group = 'net.twotwofish.persistence.prototype'
 subprojects {
 	apply plugin: 'java'
 
+	// Used for Spock testing framework.
+	apply plugin: 'groovy'
+
 	targetCompatibility = "1.6"
 	sourceCompatibility = "1.6"
 
@@ -23,6 +26,9 @@ subprojects {
 		test {
 			java {
 				srcDirs = ['src/test/java']
+			}
+			groovy {
+				srcDirs = ['src/test/groovy']
 			}
 			resources {
 				srcDirs = ['src/test/resources']

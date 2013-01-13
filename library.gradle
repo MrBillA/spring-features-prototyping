@@ -2,23 +2,27 @@
 // use.  In that respect it serves a role similar to <dependencyManagement> in Maven
 ext {
 	// Module version definitions
-	springVersion = '3.1.1.RELEASE'
-	springDataVersion = '1.1.0.RELEASE'
-	jpaVersion = '2.0.0'
-	junitVersion = '4.10'
-	hibernateVersion = '4.1.4.Final'
+	springVersion 		= '3.1.1.RELEASE'
+	springDataVersion 	= '1.1.0.RELEASE'
+	jpaVersion 			= '2.0.0'
+	junitVersion 		= '4.10'
+	hibernateVersion 	= '4.1.4.Final'
 	hibernateJpaVersion = '1.0.0.Final'
-	slf4jVersion = '1.6.6'
-	log4jVersion = '1.2.16'
-	aspectjVersion = '1.6.12'
-	jodatimeVersion = '2.1'
-	hsqldbVersion = '2.2.8'
-	mockitoVersion = '1.9.0'
-	hamcrestVersion = '1.1'
-	querydslVersion = '2.6.0'
-	cglibVersion = '2.2.2'
+	slf4jVersion 		= '1.6.6'
+	log4jVersion 		= '1.2.16'
+	aspectjVersion 		= '1.6.12'
+	jodatimeVersion 	= '2.1'
+	hsqldbVersion 		= '2.2.8'
+	mockitoVersion 		= '1.9.0'
+	hamcrestVersion 	= '1.1'
+	querydslVersion 	= '2.6.0'
+	cglibVersion 		= '2.2.2'
 
-    libraries = [
+	// For Spock testing, note version dependency.
+	groovyVersion 		= '1.7.5'
+	spockVersion 		= '0.6-groovy-1.7'
+
+	libraries = [
 		// Spring
 		springdata_jpa:			"org.springframework.data:spring-data-jpa:$springDataVersion",
 		spring_orm:				"org.springframework:spring-orm:$springVersion",
@@ -71,7 +75,11 @@ ext {
         hamcrest:				"org.hamcrest:hamcrest-all:$hamcrestVersion",
         spring_test:			"org.springframework:spring-test:$springVersion",
         hsqldb:					"org.hsqldb:hsqldb:$hsqldbVersion",
+		groovy:					"org.codehaus.groovy:groovy-all:$groovyVersion",
+		spock:					"org.spockframework:spock-core:$spockVersion",
+		objenesis:				"org.objenesis:objenesis:1.2",
 
+			// CGLIB
 		cglib:					"cglib:cglib-nodep:${cglibVersion}"
     ]
 }
