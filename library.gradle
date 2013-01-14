@@ -68,6 +68,7 @@ ext {
  		log4j:					"log4j:log4j:$log4jVersion",
         slf4j_api:      		"org.slf4j:slf4j-api:${slf4jVersion}",
         slf4j_log4j12:  		"org.slf4j:slf4j-log4j12:${slf4jVersion}",
+        slf4j_nop:  			"org.slf4j:slf4j-nop:${slf4jVersion}",
 
 		// testing
         junit:          		"junit:junit:${junitVersion}",

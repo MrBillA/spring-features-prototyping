@@ -1,0 +1,24 @@
+description = 'Persistence Prototype Model Jpa DAO implementation.'
+
+group = 'net.twotwofish.persistence.prototype.daoJpa'
+
+println "This project name: ${project.name}"
+
+dependencies {
+	compile project(':subprojects:persistencePrototype:model')
+	compile project(':subprojects:persistencePrototype:daoApi')
+	
+	compile( libraries.spring_orm )
+	compile( libraries.hibernateJpa )
+	compile( libraries.hibernateEntityManager )
+	compile( libraries.cglib)
+	compile( libraries.persistence_api)
+	compile( libraries.slf4j_api)
+	compile( libraries.slf4j_nop)
+
+	testCompile( libraries.spring_test )
+	testCompile( libraries.junit )
+	groovy( libraries.groovy )
+	testCompile( libraries.spock )
+	testCompile( libraries.hamcrest )
+}

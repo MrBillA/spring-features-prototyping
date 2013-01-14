@@ -1,0 +1,9 @@
+description = 'Persistence Prototype Model DAO interfaces.'
+
+group = 'net.twotwofish.persistence.prototype.daoApi'
+
+println "This project name: ${project.name}"
+
+dependencies {
+    compile project(':subprojects:persistencePrototype:model')
+}

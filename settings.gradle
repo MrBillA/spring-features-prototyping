@@ -1,6 +1,8 @@
 include 'subprojects:springTestConfiguration'
 include 'subprojects:persistencePrototype'
 include 'subprojects:persistencePrototype:model'
+include 'subprojects:persistencePrototype:daoApi'
+include 'subprojects:persistencePrototype:daoJpa'
 
 rootProject.name = 'Prototyping'
 
